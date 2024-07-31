@@ -50,7 +50,6 @@ import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -264,7 +263,7 @@ public class PlankSackPlugin extends Plugin
 		}
 
 		Widget widget = event.getScriptEvent().getSource();
-		int idx = WidgetInfo.TO_CHILD(widget.getId()) - CONSTRUCTION_WIDGET_BUILD_IDX_START;
+		int idx = TO_CHILD(widget.getId()) - CONSTRUCTION_WIDGET_BUILD_IDX_START;
 		if (idx >= buildMenuItems.size())
 		{
 			return;
@@ -487,5 +486,10 @@ public class PlankSackPlugin extends Plugin
 		{
 			return Color.WHITE;
 		}
+	}
+
+	private static int TO_CHILD(int id)
+	{
+		return id & 0xFFFF;
 	}
 }
