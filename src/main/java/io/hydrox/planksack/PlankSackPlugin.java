@@ -310,7 +310,7 @@ public class PlankSackPlugin extends Plugin
 			}
 		}
 		else if ((event.getMenuOption().equals("Repair") || event.getMenuOption().equals("Build")) &&
-				MAHOGANY_HOMES_REPAIRS.containsKey(event.getId()))
+				MAHOGANY_HOMES_REPAIRS.containsKey(event.getId()) && !watchForAnimations)
 		{
 			watchForAnimations = true;
 			buildCost = MAHOGANY_HOMES_REPAIRS.get(event.getId());
